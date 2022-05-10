@@ -1,0 +1,13 @@
+Way to see how machine works with different cycle mode
+
+function: when user sets up the cycle mode, after checking all the parameters, the machine will start running. the way that user can see the situation of the machine is by watching the speed of circle spinning displayed on 7-Segment Display. Generally, the circle spins from slow gradually to fast and will slow down again and eventually stop. With different cycle mode, the speeds of spin are different.
+
+Implement: I used "BusOut" ("BusOut SegDis(PA_11, PA_12, PB_1, PB_15, PB_14, PB_12, PB_11)") of 7-segment display to represent the working of machine. which I generally separated 6 sub washing stages (start - slow speed - medium speed - fast speed - medium speed - slow speed), each stage takes 12000 ms(start stage does not count) so it's 1 minute minute in total for a full washing cycle. 
+
+At each stage, i mainly used 2 "for" loops to control the numbers of spins and how long each segment will be on for each. for example, at slow stage, there will be 8 times of spin/stage, therefore, at each spin, one segment will take 250ms; at high-speed stage, there will be 32 times of spin/stage, at each spin, one segment will take 62ms. So, with varying the numbers of spin at each stage, it will indicate different "speeds" of machine
+
+for displaying 'cycles' on 7-segment display, as I mentioned, I used 'BusOut' for all 7 segments, and an array which contains hexdecimal expression for the combination of ways the 7-segment can 'draw' cycles("int cyclearray[] = {0x20, 0x21, 0x23, 0x27, 0x2F, 0x3F}") (Basically refers to the 7-segment provided at Unit 4, from F - A - B - C - D - E - F)
+
+and for displaying 'finish', similar to abve, I created another array("int finishsign[] = {0x71, 0x06, 0x37 , 0x06, 0x6D, 0x76}") which contains the combination of segments that able to draw each character(F-I-N-I-S-H)
+
+Because this "washing procedure" is quite long in codes, so i used "void" functions for individual part of this section ("void slowspin()" for delicate mode,  "void regularmode()" for regular, and implement them in "main" function, which makes the mian function looks neater
