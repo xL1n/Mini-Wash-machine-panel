@@ -1,0 +1,30 @@
+List of Instructions with hardwares used 
+
+1: POWER SWITCH, which can control the ON/OFF of machine.
+
+hardware: 09-03290.01 switch, connected to PIN PC_10 
+
+
+2: MODE SELECTIOIN BUTTON: which can select 2 different washing modes (Left for Regular Mode, Right for Delicate Mode)
+
+hardware: FSM2JRT, connected to PC_11 for Left one, PD_2 for Right one.
+
+
+3: LAUNDRY WEIGHT CHECK: which is able to check the weight of laundry in order to make sure the machine can withstand the weight for the best washing result
+
+hardware: .MF01-N-221-A04(force sensor), connected to PC_3.
+
+
+4: TEMPERATUER CHECK: which is able to detect temperature automatically, in order to let user know the temperatures at different stage of washing. 
+
+hardware: NTCLE100E3103(temperature sensor), connected to PA_1.
+
+
+5: WASHING STAGE DISPAY: which can let user know what the current stage of washing is (by looking at the speed of circle spins), also tells the user when the washing is finished.
+
+hardware: 7-segment display, connected to PA_11, PA_12, PB_1, PB_15, PB_14, PB_12, PB_11
+
+
+6: POWER INDICATING LEDS: which can let user know the ON/FF state of the machine (when red is on, means OFF, when green is on, means ON)
+
+hardware: red and green leds, connected to PC_0, PC_1
