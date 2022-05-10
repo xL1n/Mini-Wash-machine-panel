@@ -1,0 +1,10 @@
+used to check the temperature of water during each stage of washing, also check the weight of cloths put in 
+
+Function: this is to check the weight of laundry put into the machine, if machine cannot withstand the weight, it will alert and the machine will not work(not implement Washing function).
+
+also, user can check the temperatures of water at 6 different sub stages of washing.
+
+Implement : For the simulating displaying the water temperature at end of different stage, I firstly chose analogue  pin("AnalogIn TEM", PA_1) to get the value of temperature sensor(NTCLE100E3103) to convert the input value to "fake" degree just for simulation(for the function I just chose about 26degree as room temperature, add some calculations to make the value change rationally), after each sub-washing stages, I simulated different temperatures at different sub-washing stages by putting fingers on sensor, and use "printf" to display the value on screen. This whole function is implemented during "washing stage" 
+
+
+For detecting force, i chose to analogue pin("AnalogIn FRC",PC_3) to get values on force sensor(MF01-N-221-A04)(simulated by put fingers on it), and i created a "weightcheck" function("int weightcheck()") which is used to check the value, if the value is larger than 85(force sensor detected >= "85%"), it will return 0, otherwise, it will return 1. this enables to implement "weight check function" as I created a if loop in the main function after the "cycle mode" has chosen but before washing stage, if the weightcheck function returns 0("weight" >=  85 %), it will print warning, and stop further "washing" stage. else(when return 1), it will continue to implement the "washing" stage.
