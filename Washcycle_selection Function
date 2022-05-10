@@ -1,0 +1,5 @@
+wash cycle selection function
+
+function : after machine is on, user can choose which mode they want from 2 options(one is REGULAR MODE which spins fast, another one is DELICATE MODE which spins slowly). after they choose, there option will be dispayed on the screen, and will check the "weight of laundry", if it's not too heavy, washing section begains, else, it will print warning
+
+Implement : this is implemented by mainly "if" loop, i have set up a button ("DigitalIn fastmode(PC_11);",PC_11) for regular mode, and a button ("DigitalIn delicatemode(PD_2)",PD_2) for delicate mode, when switch is connected to positive,  and once one of these buttons is pressed, firstly, I used "printf" to display which mode user has chosen, then it will check the "weight of laundry" which is to check the force parameter input value on force sensor(will be illustrated separately in "Parameter section"), if the force analogue value is not exceed the max value I set up(below 85%), the wash begins 
